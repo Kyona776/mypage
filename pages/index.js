@@ -30,6 +30,10 @@ import { useRef } from "react";
 
 import { Spaceship } from "../components/animation/motion/Spaceship";
 import { UFO } from "../components/animation/motion/UFO";
+import InvationByUFO from "../components/animation/motion/InvationByUFO";
+import { Ghost } from "../components/animation/motion/Ghost";
+import { UfowAlien } from "../components/animation/motion/UfowAlien";
+// import { Cow } from "../components/animation/motion/Cow";
 // import { Biography } from "../components/Biography"
 
 // import JumpDiag from "../components/animation/JumpDiag";
@@ -50,19 +54,18 @@ export default function Start({}) {
 	return (
 		<Box w='100%'>
 			<MojsInit />
-				<Flex marginTop="10%" 
+				<Flex marginTop="150px" 
 					flexDirection='column'
 					mb="5%" justifyContent='center'>
 					<Heading
-						as="h1"
-						size="2xl"
-						display="flex"
+						as="h1" size="2xl" display="flex"
+            zIndex={'docked'}
 						alignItems="center"
 						justifyContent="center"
 						flexDirection="column"
-            			data-aos="showup"
-            			data-aos-anchor-placement="top-top" className="aos-init aos-animate"
-            		>
+            data-aos="showup"
+            data-aos-anchor-placement="top-top" className="aos-init aos-animate"
+          >
 						<Container w="auto">
 						<NeonText color="yellow.100" shadowColor="yellow" second={4} animation={true}>
 							Enomoto Kyona&apos;s
@@ -70,7 +73,7 @@ export default function Start({}) {
 						<NeonText color="yellow.100" shadowColor="yellow" second={4}  animation={true}>
 							Portfolio website
 						</NeonText>
-						<Text animetion='blink'>test blink</Text>
+						<Text p={2} animetion='blink' textAlign='center'>Wellcome</Text>
 						</Container>
 						</Heading>
 						<MotionCube />
@@ -79,13 +82,17 @@ export default function Start({}) {
 						<MoTst></MoTst>
 					<InitLoad />
 					<MojsExample duration={1000} />
+          <Cow />
 					*/}
 					<Spaceship />
 					<UFO />
+          <InvationByUFO />
+          <Ghost />
+          <UfowAlien />
 					</Flex>
 
-				<VStack as="main" w="100%" mb='100px' pr="10vw" pl="10vw" 
-					spacing={20} bg="transparent">
+				<VStack as="main" w="100%" mb='300px' pr="10vw" pl="10vw" 
+					gap={20} bg="transparent">
 					<NavBar id='navbar' ></NavBar>
           			<Box w='100%' data-aos="fade" data-aos-anchor-placement="top-center" className="aos-init aos-animate">
 						{/*<NeonBorder
