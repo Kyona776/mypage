@@ -8,6 +8,16 @@ import lodash from "lodash";
 
 const moListItem = motion(ListItem);
 
+
+const menuVariants = {
+    enter: {
+        x: -100,
+    },
+    exit : {
+        x: 100,
+    }
+}
+
 // [documentLenght, elementOffese, elemntoffeset...]
 const ScrollMemu = (props) => {
     const [popOrNot, setPop] = useState([true, false, false, false]);
@@ -23,6 +33,10 @@ const ScrollMemu = (props) => {
         return eleY
     }
     const eleBotmY = useMemo(() => setYpos(),[]);
+
+    const popItems = () => {
+
+    }
 
     const consE = (e) => {
         if(eleBotmY[1]-10 <= window.scrollY <= eleBotmY[1]+10){
@@ -56,18 +70,14 @@ const ScrollMemu = (props) => {
     
 
     return(
-        <List position='fixed' spacing='10%' >
+        <List layout  position='fixed' spacing='10%' right={10}>
             <ListItem>
             {Yposi}
             </ListItem>
-            {menuTitle.map((item, index) => (
-                <moListItem key={index}
-                    animate={{x:-100}}
-                >
-                    {popOrNot[index] ? 'true' : 'false'}
-                    {item}
-                    {eleBotmY ? eleBotmY[index] : 'none'}
-                </moListItem>
+            {popOrNot.map((pop, index) => (
+                pop ? <ListItem>
+                    <motion.div initial='enter' exit='exit' variants={menuVariants}>pop</motion.div></ListItem> 
+                    : <ListItem>notpop</ListItem>
             ))}
         </List>
     )
