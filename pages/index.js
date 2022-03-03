@@ -1,45 +1,107 @@
-import { useState } from "react"
-import Head from "next/head"
-import dynamic from "next/dynamic"
+import { useState, useContext, useEffect } from "react";
+import dynamic from "next/dynamic";
 
-import styles from "../styles/Home.module.css"
-import Image from "next/image"
+import UserContext from "../components/UserContext"
 
-const CodeSampleModal = dynamic(() => import("../components/CodeSampleModal"), {
-  ssr: false
-})
+import Image from "next/image";
 
-export default function Start({ countries }) {
-  const [results, setResults] = useState(countries)
-  const [isModalOpen, setIsModalOpen] = useState(false)
+import { Heading, Link, Text, Box } from "@chakra-ui/react";
+import { Center, Square, Circle, chakra } from "@chakra-ui/react";
+import { Container, Stack, VStack, Flex } from "@chakra-ui/react";
+import Profile from '../components/Profile';
 
-  return (
-    <div>
-      <Head>
-        <title>Core Web Vitals</title>
-        <meta name="description" content="Core web vitals walk through" />
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter"
-          rel="stylesheet"
-        />
-      </Head>
 
-      <main className={styles.container}>
-        <h1 className={styles.title}>
-          Powered by <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+import { motion } from 'framer-motion'
 
-        <div className={styles.heroImage}>
-          <Image
-            src="/large-image.jpg"
-            alt="Large Image"
-            width={3048}
-            height={2024}
-          />
-        </div>
+import { pagetext, tags } from "../components/webcontents";
 
-        <div>
+// const CodeSampleModal = dynamic(() => import("../components/CodeSampleModal"));
+// const NeonText = dynamic(() => import("../components/NeonText"));
+import NeonText from "../components/NeonText";
+// const Biography = dynamic(() => import("../components/Biography.js"));
+import Biography from "../components/Biography.js";
+// const MotionCube = dynamic(() => import("../components/animation/MotionBox"));
+import MotionCube from "../components/animation/Diminishing";
+import Projects from "../components/Projects";
+// const InitLoad = dynamic(() => import("../components/animation/InitLoad"));
+import InitLoad from "../components/animation/InitLoad";
+import { NavBar } from "../components/Nav/NavBar";
+import { useRef } from "react";
+
+import { Spaceship } from "../components/animation/motion/Spaceship";
+import { UFO } from "../components/animation/motion/UFO";
+// import { Biography } from "../components/Biography"
+
+// import JumpDiag from "../components/animation/JumpDiag";
+// const JumpDiag = dynamic(() => import('../components/animation/JumpDiag'), {ssr:false})
+// const MojsExample = dynamic(() => import('../components/animation/MojsExample.js'), {ssr:false});
+
+const MoTst = dynamic(() => import('../components/animation/MoTst'), {ssr:false})
+const MojsInit = dynamic(() => import('../components/animation/MojsInit'), {ssr:false});
+const ScrollMenu = dynamic(() => import('../components/ScrollMenu'), {ssr:false});
+
+export default function Start({}) {
+	// const [results, setResults] = useState(countries)
+  	const { scrollRef } = useContext(UserContext);
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [lang, setLang ] = useState("en")
+  // console.log(this.props.scrollTop);
+
+	return (
+		<Box w='100%'>
+			<MojsInit />
+				<Flex marginTop="10%" 
+					flexDirection='column'
+					mb="5%" justifyContent='center'>
+					<Heading
+						as="h1"
+						size="2xl"
+						display="flex"
+						alignItems="center"
+						justifyContent="center"
+						flexDirection="column"
+            			data-aos="showup"
+            			data-aos-anchor-placement="top-top" className="aos-init aos-animate"
+            		>
+						<Container w="auto">
+						<NeonText color="yellow.100" shadowColor="yellow" second={4} animation={true}>
+							Enomoto Kyona&apos;s
+						</NeonText>
+						<NeonText color="yellow.100" shadowColor="yellow" second={4}  animation={true}>
+							Portfolio website
+						</NeonText>
+						<Text animetion='blink'>test blink</Text>
+						</Container>
+						</Heading>
+						<MotionCube />
+						<ScrollMenu />
+					{/*<JumpDiag >asdf</JumpDiag>
+						<MoTst></MoTst>
+					<InitLoad />
+					<MojsExample duration={1000} />
+					*/}
+					<Spaceship />
+					<UFO />
+					</Flex>
+
+				<VStack as="main" w="100%" mb='100px' pr="10vw" pl="10vw" 
+					spacing={20} bg="transparent">
+					<NavBar id='navbar' ></NavBar>
+          			<Box w='100%' data-aos="fade" data-aos-anchor-placement="top-center" className="aos-init aos-animate">
+						{/*<NeonBorder
+							color="yellow.100"
+							animation={true}
+							shadowColor="yellow"
+							second={5}
+						border="2px" />*/}
+          			</Box>
+					<Profile />
+					<Biography >{pagetext[lang]['bio']}</Biography>
+					
+					<Projects projs={pagetext[lang]['projs']} ></Projects>
+				</VStack>
+				
+				{/*<div>
           <h2 className={styles.secondaryHeading}>Population Lookup</h2>
           <input
             type="text"
@@ -82,47 +144,45 @@ export default function Start({ countries }) {
             ))}
           </ul>
         </div>
-
+        
         <div className={styles.codeSampleBlock}>
-          <h2 className={styles.secondaryHeading}>Code Sample</h2>
-          <p>Ever wondered how to write a function that prints Hello World?</p>
-          <button onClick={() => setIsModalOpen(true)}>Show Me</button>
-          {isModalOpen && (
-            <CodeSampleModal
-              isOpen={isModalOpen}
-              closeModal={() => setIsModalOpen(false)}
-            />
+        <h2 className={styles.secondaryHeading}>Code Sample</h2>
+        <p>Ever wondered how to write a function that prints Hello World?</p>
+        <button onClick={() => setIsModalOpen(true)}>Show Me</button>
+        {isModalOpen && (
+          <CodeSampleModal
+          isOpen={isModalOpen}
+          closeModal={() => setIsModalOpen(false)}
+          />
           )}
-        </div>
-      </main>
+          </div>
+        */}
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=learn&&utm_campaign=core-web-vitals"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
-    </div>
-  )
+		</Box>
+	);
 }
 
+/*
 export async function getServerSideProps() {
-  const response = await fetch("https://restcountries.com/v3.1/all")
-  const countries = await response.json()
+  // const response = await fetch("https://restcountries.com/v3.1/all")
+  // const countries = await response.json()
 
   return {
     props: {
-      countries: countries.map((country) => ({
+       countries: countries.map((country) => ({
         name: country.name.common,
         cca2: country.cca2,
         population: country.population,
       })),
     }
   }
+}*/
+
+/* 
+export async function getStaticProps() {
+
+  return {
+    props: {}
+  }
 }
+*/
