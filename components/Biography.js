@@ -25,7 +25,10 @@ import NeonBorder from "../components/NeonBorder";
 export default function Biography(props) {
 	return (<Box as='div' w="100%" data-aos="fade"
 			data-aos-anchor-placement="top-center"
-			className="aos-init aos-animate bio">
+			className="aos-init aos-animate bio"
+			Id='bio' 
+			pt={'10vh'}
+			>
 			    {/*<NeonBorder
 			    	color="yellow.100" blink={true}
 				shadowColor="yellow" second={3} border="2px" />*/}
@@ -54,7 +57,7 @@ export default function Biography(props) {
 			    <br />
 			    <NeonText color="purple.100" shadowColor="purple"
 			    	second={4} data-aos="fade"
-			    	data-aos-anchor-placement="center"
+			    	data-aos-anchor-placement="top-center"
 			    	className="aos-init aos-animate">
 			    	{props.children}
 			    </NeonText>

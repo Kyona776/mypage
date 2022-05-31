@@ -13,8 +13,6 @@ const neonShadow = `
 export default forwardRef((props, ref) => {
     const blinkAnimation = `${blink} linear infinite ${props.second}s`;
     const lightonAnimation = `${lighton} linear infinite ${props.second}s`;
-    // console.log(props);
-    // console.log(props.animation ? blinkAnimation : '');
     return (
         <Text color={props.color} p={2} animation={props.animation ? blinkAnimation : ''} 
             textShadow={neonShadows[props.shadowColor]} {...props} ref={ref}

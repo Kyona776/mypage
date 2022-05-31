@@ -41,7 +41,7 @@ const MotionBox = motion(Box);
 export const Spaceship = () => {
     
     return (
-        <Box position='absolute' top='50vh' z-index='base' w={'30vh'} h={'30vh'}>
+        <Box position='absolute' top={['55vh', '50vh','45vh', '40vh','35vh', '30vh']} z-index='base' w={['150px', '30vw']} h={'auto'}>
             <motion.svg whileHover='hover' variants={svgVariants} initial='hidden' 
                 animate='visible' viewBox='0 0 461.58 446.86' width='auto' height='auto'
                 xmlns="http://www.w3.org/2000/svg"

@@ -11,7 +11,6 @@ export const cIcon = (props) => {
 }
 
 export const cTag = (props) => {
-    console.log(props);
     return(
         <Tag size={props.size} variant='outline' colorScheme='blue'>
             <TagLabel>{props.text}</TagLabel>
@@ -49,7 +48,17 @@ export const pagetext =  {
                     small size of dataset. I usded Tensorflow and keras tuner for hyperparameter tuning, conducted
                     experiment on google colab.`,
             img: ""
-        },  { title: "Stable Crypto Coin",
+        },  { title: "Automated hedged P2P lending defi platform",
+            url: "",
+            status : "Ongoing",
+            tags : ['solidity', 'truffle', 'ganache'],
+            text: `This is personal research project of Ethereum based P2P lending platform. The great feature of this defi
+            is automated currency hedging without any counterparty. It utilize stablecoin mechanism, such as Dai.
+            For future, it needs to be intergrated with zksnark or FHE based creadit scoring, accounting and  KYC system.
+            It is beacuse any Defi projects cannot avoid regulation.
+            `
+        },
+        { title: "Stable Crypto Coin",
             url: "",
             status : "Ongoing",
             tags : ['solidity', 'truffle', 'ganache'],
@@ -60,7 +69,8 @@ export const pagetext =  {
             to real economic activity. This coin will have two stability function. One is cyrpto economic stabilizing mechanism
             that algorismic mechanism like beanstalk and gradual decreasing transaction cost system. Another is lending based stabilizing mechanism which is based on 
             based on real economic acitivity.`
-        }, { title: "Simple WYSIWYG Note application",
+        },
+        { title: "Simple WYSIWYG Note application",
             url:"",
             status : "Ongoing",
             tags: ['Node.js', 'Python', 'React', 'flask'],
@@ -70,8 +80,48 @@ export const pagetext =  {
         ]
         },
     jp: { 
-        "prof" : "", 
-        "bio" : ""    
+        "prof" : `エノモトキョウナです。
+        生まれは愛知県で、高校２年生まで愛知県で暮らしていました。
+        高校２年生の時から３年間シンガポールで放浪して、
+        ２１歳の時から台湾の大学へ留学してました。
+        台湾では大学と大学院で財務金融学科を学んでいました。
+        ２年くらい前からプログラミングを趣味で始めて、いろいろなものを広く浅く学んでいます。
+        プログラミング言語はPython, Node.js, Solidityをよく使います。
+        音楽が好きで、DTMでEDM系の音楽を作曲をしてます。
+        使ってる音楽ソフトはFL Studioです。
+        `, 
+        "bio" : `
+        中国文化大学 商院 財務金融學系（台灣） 2016-2020
+        中國文化大學 商院 財務金融學系 碩士班（台灣） 2020-2021
+        `,
+        projs : [
+            { title: "Browse Dog",
+            url:"",
+            status : "Ongoing",
+            tags: ['Node.js', 'Python', 'React', 'flask'],
+            text : `インターン時に新規アプリ事業としてデモアプリを作りました。
+            初めて作ったウェブアプリでした。機能として固有名詞抽出apiサービスを利用してして、
+            タグを自動生成する機能があります。`,
+            image: "/images/browsedog.png"
+            },{ 
+            title: 'Polygon Planet',
+            url: '',
+            status: '',
+            tags: ['Blender', 'Threejs'],
+            text: `
+                Blenderで作ったポリゴン惑星を作りました。
+            `, image: "/images/lowpoly.png"
+        }, {
+            title: 'P2P lending credit scoring with transformer and dynamicConv',
+            url: `https://github.com/Kyona776/creditscoring`,
+            status: '',
+            tags:['tensorflow', 'python'],
+            text: `大学院での論文で信用スコアリングモデルの作成で使用しました。
+            TransformerベースのモデルとDynamicConvベースの二つのシークエンスモデルを
+            Lending Clubのデータセットを使い比較研究しました。\n
+            結果的にはかなりの精度でデフォルト予測をおこなることがわかりました。`
+        }
+        ]
         },
     ch: {},
 }

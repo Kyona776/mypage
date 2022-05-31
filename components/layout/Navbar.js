@@ -8,10 +8,11 @@ import { Skeleton, SkeletonCircle, SkeletonText } from '@chakra-ui/react';
 import { HStack } from "@chakra-ui/react";
 import NeonText from "../NeonText";
 
-const Navbar = (props) => {
+const Navbar = () => {
     return(
     <Breadcrumb position='sticky' height="10vh" width="100vw"
     display="flex" alignItems="center" justifyContent="center"
+    Id="home"
     >
         <HStack width='80vw'
             display="flex" alignItems="center" 

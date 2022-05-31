@@ -82,12 +82,17 @@ const MotionBox = motion(Box);
 export const UFO = () => {
     
     return (
-        <Box position='absolute' top='10vh' zIndex={'base'}
-            width='100vw' justifyItems={'center'} 
+        <Box 
+            // position='absolute' top='10vh' 
+            zIndex={'base'}
+            width='100%' justifyItems={'center'} 
             >
             <MoSvg variants={svgVariants} initial='hidden' animate='visible' 
-                viewBox='0 0 602.91 565.145' width='25vh' height='25vh'
-                mx={'auto'} xmlns="http://www.w3.org/2000/svg"
+                viewBox='0 0 511 511' width='100%' height='20vw'
+                maxHeight='25vh' minHeight='150px'
+                mx={'auto'} xmlns="http://www.w3.org/2000/svg" 
+                // preserveAspectRatio="xMidYMid meet"
+                // preserveAspectRatio="none"
                 //width="calc(86.13px + (86.13px * 1%))" height="calc(80.735px + (80.735px * 1%)"
                 // width={'calc(86.13px * 2)'} height={'calc(80.735px * 2)'}
                 >
@@ -109,5 +114,5 @@ export const UFO = () => {
                 <motion.path variants={pathVariants} stroke="#0099ff" initial='hidden' animate='beam' custom={4} fill='white' d="m278.57,455.895c-4.14,0.122-7.398,3.577-7.276,7.717l.706,23.99c0.119,4.065 3.453,7.28 7.492,7.28 0.075,0 0.15-0.001 0.225-0.003 4.14-0.122 7.398-3.577 7.276-7.717l-.706-23.99c-0.121-4.141-3.537-7.395-7.717-7.277z"/>
             </MoSvg>
         </Box>        
-    )
-}
+        )
+    }

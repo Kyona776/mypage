@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import { useState, useMemo, useRef } from "react";
 
 import { Box, Heading, HStack, Button, 
-    Text, useDisclosure} from "@chakra-ui/react";
+    Text, useDisclosure, Image} from "@chakra-ui/react";
 import {
     Modal, ModalOverlay, ModalContent,
     ModalHeader, ModalFooter, ModalBody, 
@@ -39,10 +39,10 @@ function Project(props) {
     const {isOpen, onOpen, onClose } = useDisclosure();
     const elRef = useRef(null);
     const setFocus = (e) => {
-        console.log(elRef.current.focus);
+        // console.log(elRef.current.focus);
         elRef.current && !isOpen && elRef.current.focus();
     }
-    console.log('projct', props);
+    // console.log('projct', props);
     let tags = useMemo(() => listBadge(props.tags),[props.tags]);
 
     function listBadge(badge) {
@@ -60,7 +60,7 @@ function Project(props) {
             justifySelf='Center' zIndex='docked'
             bgImage='/images/Spaceship.svg' bgSize='auto'
             bgPos='Center' cursor='pointer' onClick={onOpen}
-            display='flex' flexDirection='row'
+            display='flex' flexDirection='row' Id="proj"
             justifyContent='space-between' >
 			    <Heading
 			    	as="h4"
@@ -87,17 +87,21 @@ function Project(props) {
                 </Text>
                 <HStack spacing={4}>
                     {tags}
-                    {console.log(tags)}
                 </HStack>
 			    <br />
                 <Modal isOpen={isOpen} onClose={onClose} onBlur={onClose}
-                        bg='gray.500' w={['80%', '80%', '100%']} autoFocus={true}
+                        bg='gray.500' w={['150px', '50vw', '80vw']} autoFocus={true}
                         closeOnEsc={true} isCentered={true}
                 >
-                    <ModalContent bgColor="gray.500" w='100%'>
+                    <ModalContent bgColor="gray.500" w='80vw'>
                     <ModalHeader >{props.title}</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
+                        {!!props.image &&
+                            <a href="https://lowpoly-alpha.vercel.app/">
+                                <Image src={props.image} w='100%' height={'100%'}></Image>
+                            </a>
+                        }
                         <Text variant='purpleneon'>
                             {props.text}
                         </Text>

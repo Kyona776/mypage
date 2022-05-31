@@ -12,18 +12,37 @@ import "aos/dist/aos.css";
 import { neonShadows } from '../components/NeonShadows';
 import { blink } from '../components/Animation';
 
+const neonVarants = {
+  'purpleneon': {
+    color: "purple.200",
+    'text-shadow': neonShadows['purple'],
+  }, 'blueneon' : {
+    color: "blue.200",
+    'text-shadow' : neonShadows['blue']
+  }, 'greenneon': {
+    color: 'green.200',
+    'text-shadow' : neonShadows['green']
+  }, 'yellowneon' :{
+    color : 'yellow.200',
+    'text-shadow': neonShadows['yellow']
+  } 
+}
+
 const theme = extendTheme({
+    styles:{
+      global: {
+        'html' : {
+          'scroll-behaviour' : 'smooth',
+        },
+        'body': {
+          bg: '#000d1c',
+        }
+      }
+    },
     sizes: {
       ...chakraTheme.space,
       contrainer:{
         maxWidth: '100vw'
-      }
-    },
-    styles:{
-      global: {
-        'body': {
-          bg: '#000d1c'
-        }
       }
     },
     fonts: {
@@ -32,6 +51,21 @@ const theme = extendTheme({
     animations : {
       'blink': `${blink} linear infinite 2s`,
     },
+    colors: {
+
+    },
+    shadows:{
+      textShadow : {
+        'purpleneon': neonShadows['purple'],
+        'blueneon' : {
+          'text-shadow' : neonShadows['blue']
+        }, 'greenneon': {
+          'text-shadow' : neonShadows['green']
+        }, 'yellowneon' :{
+          'text-shadow': neonShadows['yellow']
+        } 
+      },
+    },
     components: {
       Heading: {
         default:{
@@ -39,20 +73,27 @@ const theme = extendTheme({
         }
       },
       Text : {
+        sizes: {
+          
+        },
         variants: {
-          'purpleneon': {
-            color: "purple.200",
-            'text-shadow': neonShadows['purple'],
-          }, 'blueneon' : {
-            color: "blue.200",
-            'text-shadow' : neonShadows['blue']
-          }, 'greenneon': {
-            color: 'green.200',
-            'text-shadow' : neonShadows['green']
-          }, 'yellowneon' :{
-            color : 'yellow.200',
-            'text-shadow': neonShadows['yellow']
-          } 
+          ...neonVarants,
+        },
+        defaultProps: {
+          // sizes: ["lg", "lg"],
+          sizes: ["3xl", '2xl']
+        }
+      }, 
+      Block : {
+        variants: {
+          'article' : {
+            minH : '300px'
+          }
+        }
+      },
+      ListItem : {
+        variants: {
+          ...neonVarants
         }
       }
     }

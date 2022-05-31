@@ -48,25 +48,25 @@ export default function Start({}) {
 	// const [results, setResults] = useState(countries)
   	const { scrollRef } = useContext(UserContext);
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [lang, setLang ] = useState("en")
+	const [lang, setLang ] = useState("jp")
   // console.log(this.props.scrollTop);
 
 	return (
 		<Box w='100%'>
 			<MojsInit />
-				<Flex marginTop="150px" 
-					flexDirection='column'
+				<Flex // marginTop="5vh" 
+					flexDirection='column' width='100%'
 					mb="5%" justifyContent='center'>
+          <UFO />
 					<Heading
-						as="h1" size="2xl" display="flex"
-            zIndex={'docked'}
-						alignItems="center"
-						justifyContent="center"
-						flexDirection="column"
-            data-aos="showup"
+						as="h1"
+            fontSize={["4xl","5xl","6xl", "7xl"]} 
+            // fontSize="8vw"
+            display="flex" zIndex={'docked'}
+						alignItems="center" justifyContent="center"
+						flexDirection="column" data-aos="showup"
             data-aos-anchor-placement="top-top" className="aos-init aos-animate"
           >
-						<Container w="auto">
 						<NeonText color="yellow.100" shadowColor="yellow" second={4} animation={true}>
 							Enomoto Kyona&apos;s
 						</NeonText>
@@ -74,7 +74,6 @@ export default function Start({}) {
 							Portfolio website
 						</NeonText>
 						<Text p={2} animetion='blink' textAlign='center'>Wellcome</Text>
-						</Container>
 						</Heading>
 						<MotionCube />
 						<ScrollMenu />
@@ -85,24 +84,28 @@ export default function Start({}) {
           <Cow />
 					*/}
 					<Spaceship />
-					<UFO />
+					
           <InvationByUFO />
           <Ghost />
           <UfowAlien />
 					</Flex>
 
 				<VStack as="main" w="100%" mb='300px' pr="10vw" pl="10vw" 
-					gap={20} bg="transparent">
-					<NavBar id='navbar' ></NavBar>
+					// gap={100}
+          bg="transparent" // spacing={20}
+          >
+						{/*
+					<NavBar Id='navbar' ></NavBar>
           			<Box w='100%' data-aos="fade" data-aos-anchor-placement="top-center" className="aos-init aos-animate">
-						{/*<NeonBorder
+            <NeonBorder
 							color="yellow.100"
 							animation={true}
 							shadowColor="yellow"
 							second={5}
-						border="2px" />*/}
+						border="2px" />
           			</Box>
-					<Profile />
+            */}
+					<Profile >{pagetext[lang]['prof']}</Profile>
 					<Biography >{pagetext[lang]['bio']}</Biography>
 					
 					<Projects projs={pagetext[lang]['projs']} ></Projects>

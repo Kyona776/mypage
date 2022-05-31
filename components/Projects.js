@@ -29,10 +29,11 @@ export default function Projects(props) {
     for (var i = 0; i < props.projs.length; i++) {
         proj.push(<GridItem key={i}><Project key={i} {...props.projs[i]}></Project></GridItem>)
     }
-    console.log(props.projs)
 	return (<Box as='div' w="100%" data-aos="fade"
 			data-aos-anchor-placement="top-center"
-			className="aos-init aos-animate proj" id='proj'>
+			className="aos-init aos-animate proj" Id='prog'
+            pt="10vh" variant='article'
+            >
 			    <Heading
 			    	as="h2"
 			    	size="2xl"

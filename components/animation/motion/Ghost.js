@@ -12,7 +12,7 @@ export function Ghost() {
         <MoSvg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/MoSvg" 
          viewBox="0 0 512.119 512.119" fill='#000000'
             position='absolute' weight='20vh' height='20vh'
-            mx="auto" w="100%" 
+            mx="auto" w={['150px', '20vw']} right='10vw' h={['auto']}
             // xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
             // style="enable-background:new 0 0 512.119 512.119;"
         >
